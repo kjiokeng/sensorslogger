@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:keepScreenOn="true"
+    tools:context=".android.RecordingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <com.jjoe64.graphview.GraphView
+                    android:id="@+id/graph"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dip" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Display options:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBoxDisplayX"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onDisplayAxisCheckboxClicked"
+                    android:text="x" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxDisplayY"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onDisplayAxisCheckboxClicked"
+                    android:text="y" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxDisplayZ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onDisplayAxisCheckboxClicked"
+                    android:text="z" />
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:checkedButton="@id/radioButtonAcc"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButtonAcc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onReadingsTypeRadioButtonClicked"
+                    android:text="Acc" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonGyr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onReadingsTypeRadioButtonClicked"
+                    android:text="Gyr" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textViewScenario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scenario:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButtonScenarioNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="onScenarioRadioButtonClicked"
+                    android:text="Normal/Rest" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonScenarioExercising"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onScenarioRadioButtonClicked"
+                    android:text="Exercising" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonScenarioIntermediate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onScenarioRadioButtonClicked"
+                    android:text="Intermediate" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/textViewPosition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Position:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButtonPositionSitting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="onPositionRadioButtonClicked"
+                    android:text="Sitting/Standing" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonPositionLying"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onPositionRadioButtonClicked"
+                    android:text="Lying" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonPositionReclining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onPositionRadioButtonClicked"
+                    android:text="Reclining" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_start_stop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:onClick="startOrStopHeartDeepInternals"
+                    android:text="Start HeartDeep"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
